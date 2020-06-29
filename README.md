@@ -1,21 +1,30 @@
-<img src="https://github.com/doleron/matrix-reef.js/blob/master/images/matrix-reef.js-logo.png?raw=true" height="150">
+<img src="https://github.com/doleron/matrix-reef.js/blob/master/images/matrix-reef.js-logo.png?raw=true" height="175">
 
 [![Build Status](https://travis-ci.com/doleron/matrix-reef.js.svg?branch=master)](https://travis-ci.com/doleron/matrix-reef.js)
 [![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-reef.js/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-reef.js?branch=master)
 
-There are some awesome matrix libraries for Java Script in the wild but if you are looking for something faster consider to use matrix-reef dor JS.
+A faster matrix for Java Script
+
+There are some awesome matrix libraries for Java Script in the wild.
+But if you are looking for something faster consider to use this library.
 
 ## Benchmarks
 
 Some [Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication) benchmarks using [Benchmark.js](https://github.com/bestiejs/benchmark.js):
 
-|                                                   |     2x2     |     3x3     |     4x4     |    16x16    |    32x32    |   512x512   |  1024x1024  |
+|                                                   |     2x2     |     3x3     |     4x4     |    16x16    |    32x32    |   256x256   |   512x512   |
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|[Matrix-reef.js](https://github.com/doleron/matrix-reef.js)    |    24,624   |   21,900     |   15,394    |   1,799    |    265     |    0.08    |    0.01     |
-|[ml-Matrix](https://github.com/mljs/matrix)        |     8,606   |   6,205       |  4,112     |    1,003   |    217    |   0.08     |     0.01        |
-|[Math.js](https://github.com/josdejong/mathjs)     |    5,560   |   3,830      |    2,913     |    146     |     20  |    timeout   |   timeout   |
+|[Matrix-reef.js](https://github.com/doleron/matrix-reef.js) |24,624|21,900|15,394|   6,312    |   1,799    |    16.06     |    1.92    |
+|[ml-Matrix](https://github.com/mljs/matrix)        |     8,606   |   6,205       |  4,112     |    1,003   |    5,319   |   15.76     |     1.89        |
+|[Math.js](https://github.com/josdejong/mathjs)     |    5,560   |   3,830      |    2,913     |    146     |    553     |    0.92  |    0.08   |
 
-The values represent the number of operations per second obtained from chunks of 100 multiplications of squared random `n x n` matrices
+|                |    2x2    |    3x3    |   4x4   |  16x16 | 32x32 | 256x256 | 512x512 |
+|----------------|:---------:|:---------:|:-------:|:------:|:-----:|:-------:|:-------:|
+| Matrix-reef JS | 1,787,425 | 1,557,114 | 869,244 | 45,497 | 6,312 |   16.06 |    1.92 |
+| ml-Matrix      |   188,606 |   156,872 | 127,508 | 15,417 | 5,319 |   15.76 |    1.89 |
+| Math.js        |   129,336 |   101,767 |  63,528 |  3,574 |   553 |    0.92 |    0.08 |
+
+The values represent the number of operations per second. See [How to run the benchmarks](https://github.com/doleron/matrix-reef.js#how-to-run-the-benchmarks) session below for more details.
 
 ## How to install
 
@@ -24,7 +33,6 @@ Run the command:
 ```bash
 $ npm install matrix-reef.js
 ```
-
 ### CDN
 Put it somewhere in your html:
 ```html
@@ -71,8 +79,9 @@ Elapsed time: 0.76 secs for 5000 epochs.
 ## How to run the benchmarks
 
 The benchmark code is [here](https://github.com/doleron/matrix-reef.js/blob/master/benchmarks/multiplication.benchmark.js).
-Run:
+It compares the performance of matrix-multiplication using Matrix-reef.js, [Math.js](https://github.com/josdejong/mathjs) and [ml-Matrix](https://github.com/mljs/matrix).
+In order to run the benchmarks, execute the following command:
 ```bash
 node benchmarks/multiplication.benchmark.js 10 4 10 5
 ```
-for benchmark chunks of 10 `4x10` by `10x5` matrix multiplications. Use `--max-old-space-size=4096` when running huge matrices. 
+The command above executes chunks of 10 `4x10` by `10x5` matrix multiplications. Ps.: Use `--max-old-space-size=4096` when running huge matrices. 

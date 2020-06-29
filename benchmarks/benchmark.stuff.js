@@ -61,10 +61,10 @@ module.exports = {
             const matixRJS_A = new MatrixK.Matrix(a1d, a_rows, a_cols);
             const matixRJS_B = new MatrixK.Matrix(b1d, a_cols, b_cols);
 
-            const mlmatix_A = new MLMatrix.Matrix(a2d);
-            const mlmatix_B = new MLMatrix.Matrix(b2d);
+            const mlMatix_A = new MLMatrix.Matrix(a2d);
+            const mlMatix_B = new MLMatrix.Matrix(b2d);
 
-            const instance = [a2d, b2d, matixK_A, matixK_B, mlmatix_A, mlmatix_B];
+            const instance = [a2d, b2d, matixRJS_A, matixRJS_B, mlMatix_A, mlMatix_B];
 
             result[i] = instance;
 
