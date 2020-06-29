@@ -12,19 +12,13 @@ But if you are looking for something faster consider to use this library.
 
 Some [Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication) benchmarks using [Benchmark.js](https://github.com/bestiejs/benchmark.js):
 
-|                                                   |     2x2     |     3x3     |     4x4     |    16x16    |    32x32    |   256x256   |   512x512   |
-|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|[Matrix-reef.js](https://github.com/doleron/matrix-reef.js) |24,624|21,900|15,394|   6,312    |   1,799    |    16.06     |    1.92    |
-|[ml-Matrix](https://github.com/mljs/matrix)        |     8,606   |   6,205       |  4,112     |    1,003   |    5,319   |   15.76     |     1.89        |
-|[Math.js](https://github.com/josdejong/mathjs)     |    5,560   |   3,830      |    2,913     |    146     |    553     |    0.92  |    0.08   |
-
 |                |    2x2    |    3x3    |   4x4   |  16x16 | 32x32 | 256x256 | 512x512 |
 |----------------|:---------:|:---------:|:-------:|:------:|:-----:|:-------:|:-------:|
 | Matrix-reef JS | 1,787,425 | 1,557,114 | 869,244 | 45,497 | 6,312 |   16.06 |    1.92 |
 | ml-Matrix      |   188,606 |   156,872 | 127,508 | 15,417 | 5,319 |   15.76 |    1.89 |
 | Math.js        |   129,336 |   101,767 |  63,528 |  3,574 |   553 |    0.92 |    0.08 |
 
-The values represent the number of operations per second. See [How to run the benchmarks](https://github.com/doleron/matrix-reef.js#how-to-run-the-benchmarks) session below for more details.
+The values represent the number of operations per second. See [How to run the benchmarks](https://github.com/doleron/matrix-reef.js#how-to-run-the-benchmarks) below for more details.
 
 ## How to install
 
