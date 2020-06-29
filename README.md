@@ -1,8 +1,9 @@
+![matrix-reef.js](https://github.com/doleron/matrix-reef.js/blob/master/images/matrix-reef.js-logo.png?raw=true)
+
 [![Build Status](https://travis-ci.com/doleron/matrix-reef.js.svg?branch=master)](https://travis-ci.com/doleron/matrix-reef.js)
 [![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-reef.js/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-reef.js?branch=master)
 
-# matrix-reef.js
-Fast Matrix Library for Java Script
+There are a some awesome Java Script Matrix Libraries in the wild but if you are looking for something faster consider to use this library.
 
 ## Benchmarks
 

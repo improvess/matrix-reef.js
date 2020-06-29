@@ -58,8 +58,8 @@ module.exports = {
             const b2d = matrices[2];
             const b1d = matrices[3];
 
-            const matixK_A = new MatrixK.Matrix(a1d, a_rows, a_cols);
-            const matixK_B = new MatrixK.Matrix(b1d, a_cols, b_cols);
+            const matixRJS_A = new MatrixK.Matrix(a1d, a_rows, a_cols);
+            const matixRJS_B = new MatrixK.Matrix(b1d, a_cols, b_cols);
 
             const mlmatix_A = new MLMatrix.Matrix(a2d);
             const mlmatix_B = new MLMatrix.Matrix(b2d);
@@ -80,7 +80,7 @@ module.exports = {
         const size = data.length;
         suite
 
-            .add('Matrix-K', function () {
+            .add('Matrix-Reef JS', function () {
                 for (let i = 0; i < size; ++i) {
 
                     const matrices = data[i];
@@ -92,7 +92,7 @@ module.exports = {
 
                 }
             })
-            .add('ml-matrix', function () {
+            .add('ml-Matrix', function () {
                 for (let i = 0; i < size; ++i) {
 
                     const matrices = data[i];
