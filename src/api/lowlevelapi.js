@@ -53,6 +53,19 @@ module.exports = {
         return result;
     },
 
+    map2d: function (list, rows, cols, fun, restore) {
+        const size = list.length;
+        let result = restore;
+        for (let i = 0; i < size; ++i) {
+            const i_cols = i * cols;
+            for (let j = 0; j < size; ++j) {
+                const index = i_cols + j;
+                result[index] = fun(list[index], i, j);
+            }
+        }
+        return result;
+    },
+
     transpose: function (a, rows, cols, restore) {
         for (let r = 0; r < rows; ++r) {
             const rCols = r * cols;

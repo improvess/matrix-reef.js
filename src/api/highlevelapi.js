@@ -45,6 +45,24 @@ function _Matrix(data, rows, cols) {
         return result;
     }
 
+    this.addColumn = function(column, result) {
+        if (!result) result = _repeat(this.rows, this.cols);
+        lowLevelApi.map2d(this.storage, this.rows, this.cols, 
+            function(val, i, j) {
+                return val + column[i];
+            }, result.storage);
+        return result;
+    }
+
+    this.addRow = function(row, result) {
+        if (!result) result = _repeat(this.rows, this.cols);
+        lowLevelApi.map2d(this.storage, this.rows, this.cols, 
+            function(val, i, j) {
+                return val + row[j];
+            }, result.storage);
+        return result;
+    }
+
     this.map = function(fun, result) {
         if (!result) result = _repeat(this.rows, this.cols);
         lowLevelApi.map(this.storage, fun, result.storage);

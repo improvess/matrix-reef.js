@@ -60,7 +60,7 @@ const { Matrix } = require('matrix-reef.js');
 # API by examples
 - creating: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), diagonal and cloning.
 - accessing: get, set, row, col, diagonal and path.
-- arithmetics: [add, subtract](examples/arithmetics.md#adding-and-subtracting), add scalar, add row and add column.
+- arithmetics: [add, subtract](examples/arithmetics.md#adding-and-subtracting), [add scalar](examples/arithmetics.md#adding-scalar-to-matrix), [add row and add column](examples/arithmetics.md#adding-row-or-column-to-matrix).
 - multiplication: multiply by scalar, dot multiply and matrix-multiplication.
 - functional: map, max, min, sum, product, rowWise, colWise and chain call.
 - matrices: dimension, rows, cols, transpose, determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.

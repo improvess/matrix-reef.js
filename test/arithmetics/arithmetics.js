@@ -207,3 +207,61 @@ describe('add scalar', function () {
     });
 
 });
+
+describe('add column and row', function () {
+
+    it('adding column', function () {
+
+        try {
+            const expected = [[2, 5], [4, 7], [6, 9]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = A.addColumn([1, 2, 3]);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('adding row', function () {
+
+        try {
+            const expected = [[3, 3], [4, 4], [5, 5]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = A.addRow([2, -1]);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('adding column in place', function () {
+
+        try {
+            const expected = [[2, 5], [4, 7], [6, 9]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = zeros(3, 2);
+            A.addColumn([1, 2, 3], C);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('adding row in place', function () {
+
+        try {
+            const expected = [[3, 3], [4, 4], [5, 5]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = zeros(3, 2);
+            A.addRow([2, -1], C);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+});
