@@ -43,13 +43,8 @@ const B = new Matrix([
 ]); // create a 2x2 matrix
 
 const C = A.multiply(B);
-const D = A.add(C);
-const E = D.transpose();
-const F = E.multiplyByScalar(Math.PI);
-const G = F.map((i, j) => Math.exp(-2*i + j));
-const val = F.get(0, 1);
-console.log(val);
 ```
+See [examples](examples/examples.md) for a complete list of functionalities and how to use them.
 ## How to install
 
 ### Node.js
@@ -64,7 +59,7 @@ $ npm install matrix-reef.js
 
 ## Real world example
 
-This [example](https://github.com/doleron/matrix-k/blob/master/example/training.ann.js) shows how to train a neural network using the [Iris](https://archive.ics.uci.edu/ml/datasets/iris) dataset and only `add`, `multiply`, `dotMultiply` and `transpose`:
+This [example](examples/ann/training.ann.js) shows how to train a neural network using the [Iris](https://archive.ics.uci.edu/ml/datasets/iris) dataset and only `add`, `multiply`, `dotMultiply` and `transpose`:
 
 ```bash
 $ node examples/training.ann.js 

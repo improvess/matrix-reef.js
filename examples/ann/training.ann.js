@@ -1,5 +1,5 @@
 const rawdata = require('./iris.dataset').dataset;
-const {Matrix, Vector, zeros} = require('../index');
+const {Matrix, Vector, zeros} = require('../../index');
 
 let weight1 = new Matrix([
     0.0242525172953017, -0.0305390009971664, 0.03355062157463565, -0.019746308149674242,
