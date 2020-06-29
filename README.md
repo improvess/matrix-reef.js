@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/doleron/matrix-k.svg?branch=master)](https://travis-ci.com/doleron/matrix-k)
-[![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-k/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-k?branch=master)
+[![Build Status](https://travis-ci.com/doleron/matrix-reef.js.svg?branch=master)](https://travis-ci.com/doleron/matrix-reef.js)
+[![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-reef.js/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-reef.js?branch=master)
 
 # matrix-reef.js
-Fast Matrix library for Java Script
+Fast Matrix Library for Java Script
 
 ## Benchmarks
 
