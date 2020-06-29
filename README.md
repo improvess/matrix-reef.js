@@ -13,7 +13,7 @@ But if you are looking for something faster consider to use this library.
 
 ## Benchmarks
 
-Some [Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication) benchmarks using [Benchmark.js](https://github.com/bestiejs/benchmark.js):
+Some Matrix multiplication benchmarks using [Benchmark.js](https://github.com/bestiejs/benchmark.js):
 
 |                |    2x2    |    3x3    |   4x4   |  16x16 | 32x32 | 256x256 | 512x512 |
 |----------------|:---------:|:---------:|:-------:|:------:|:-----:|:-------:|:-------:|
@@ -21,7 +21,7 @@ Some [Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication
 | ml-Matrix      |   188,606 |   156,872 | 127,508 | 15,417 | 5,319 |   15.76 |    1.89 |
 | Math.js        |   129,336 |   101,767 |  63,528 |  3,574 |   553 |    0.92 |    0.08 |
 
-The values represent the number of operations per second. See [How to run the benchmarks](https://github.com/doleron/matrix-reef.js#how-to-run-the-benchmarks) below for more details.
+\# of operations per second. See [How to run the benchmarks](#how-to-run-the-benchmarks) for details.
 
 ## Disclaimer
 Matrix-reef.js is still in its early stages. Some must-to-do features are not available, there is no docs, tutorials and no TypeScript. Thus, I'm afraid that Matrix-reef.js is not ready for production yet.
@@ -44,7 +44,7 @@ const B = new Matrix([
 
 const C = A.multiply(B);
 ```
-See [examples](examples/examples.md) for a complete list of functionalities and how to use them.
+See [examples](examples/README.md) for a complete list of functionalities and how to use them.
 ## How to install
 
 ### Node.js
@@ -70,7 +70,7 @@ Elapsed time: 0.76 secs for 5000 epochs.
 ```
 ## How to run the benchmarks
 
-The benchmark code is [here](https://github.com/doleron/matrix-reef.js/blob/master/benchmarks/multiplication.benchmark.js).
+The benchmark code is [here](blob/master/benchmarks/multiplication.benchmark.js).
 It compares the matrix-multiplication performance of Matrix-reef.js, [Math.js](https://github.com/josdejong/mathjs) and [ml-Matrix](https://github.com/mljs/matrix).
 Execute the following command to run benchmarks yourself:
 ```bash
