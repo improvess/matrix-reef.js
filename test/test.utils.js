@@ -2,6 +2,11 @@ const { EINPROGRESS } = require("constants");
 
 module.exports = {
 
+
+    rand50 : function (i, j) {
+        return Math.round(10000 * Math.random()) / 100 - 50.0;
+    },
+
     compare: function (matrix, array, precision) {
         let result = true;
         if (!matrix) throw new Error("Matrix not provided");
@@ -90,6 +95,5 @@ module.exports = {
         return result;
 
     }
-
 
 }

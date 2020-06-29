@@ -13,8 +13,8 @@ if(!isNaN(samplingSize)) {
     samplingSize = parseInt(samplingSize);
     if(samplingSize <= 0 || samplingSize > maxSize) throw new Error("Illegal sampling size: " + samplingSize + ". Must be > 0 and <= " + maxSize);
 } else {
-    console.log("number of samplings not provided or recognized as an integer. Using a random generated one.");
     samplingSize = Math.round(maxSize * Math.random()) + 1;
+    console.log("number of samplings not provided or recognized as an integer. Using a random generated one: " + samplingSize);
 }
 
 if(!isNaN(aRows)) {

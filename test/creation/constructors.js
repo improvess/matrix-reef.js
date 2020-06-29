@@ -181,7 +181,6 @@ describe('wrong constructor calls', function () {
 
 });
 
-
 describe('empty or small data is valid', function () {
 
     it('1D [0] is valid', function () {

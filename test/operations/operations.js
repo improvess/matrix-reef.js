@@ -89,8 +89,6 @@ describe('map', function () {
     });
 });
 
-
-
 describe('get set', function () {
 
     it('basic', function () {

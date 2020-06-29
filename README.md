@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/doleron/matrix-reef.js.svg?branch=master)](https://travis-ci.com/doleron/matrix-reef.js)
 [![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-reef.js/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-reef.js?branch=master)
 
-A faster matrix for Java Script
+A faster Matrix for the Java Script World
 
 There are some awesome matrix libraries for Java Script in the wild.
 But if you are looking for something faster consider to use this library.

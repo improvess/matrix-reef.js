@@ -2,40 +2,9 @@ const MatrixK = require('../index');
 const MathJS = require('mathjs');
 const MLMatrix = require('ml-matrix');
 const Benchmark = require('benchmark');
+const testUtils = require('../test/test.utils');
 
 module.exports = {
-
-    populate: function (a_rows, a_cols, b_cols, generator) {
-
-        const a2d = [];
-        const a1d = [];
-
-        for (let i = 0; i < a_rows; ++i) {
-            const row = [];
-            a2d[i] = row;
-            const index_home = i * a_cols;
-            for (let j = 0; j < a_cols; ++j) {
-                const val = generator(i, j);
-                row[j] = val;
-                a1d[index_home + j] = val;
-            }
-        }
-
-        const b2d = [];
-        const b1d = [];
-
-        for (let i = 0; i < a_cols; ++i) {
-            const row = [];
-            b2d[i] = row;
-            const index_home = i * b_cols;
-            for (let j = 0; j < b_cols; ++j) {
-                const val = generator(i, j);
-                row[j] = val;
-                b1d[index_home + j] = val;
-            }
-        }
-        return [a2d, a1d, b2d, b1d];
-    },
 
     generateData: function (amount, sideGen) {
 
@@ -49,22 +18,16 @@ module.exports = {
             const a_cols = dims[1];
             const b_cols = dims[2];
 
-            const matrices = module.exports.populate(a_rows, a_cols, b_cols, function (i, j) {
-                return Math.round(10000 * Math.random()) / 100 - 50.0;
-            });
+            const a = testUtils.randomArray(a_rows, a_cols, testUtils.rand50);
+            const b = testUtils.randomArray(a_cols, b_cols, testUtils.rand50);
 
-            const a2d = matrices[0];
-            const a1d = matrices[1];
-            const b2d = matrices[2];
-            const b1d = matrices[3];
+            const A = new MatrixK.Matrix(a);
+            const B = new MatrixK.Matrix(b);
 
-            const matixRJS_A = new MatrixK.Matrix(a1d, a_rows, a_cols);
-            const matixRJS_B = new MatrixK.Matrix(b1d, a_cols, b_cols);
+            const mlA = new MLMatrix.Matrix(a);
+            const mlB = new MLMatrix.Matrix(b);
 
-            const mlMatix_A = new MLMatrix.Matrix(a2d);
-            const mlMatix_B = new MLMatrix.Matrix(b2d);
-
-            const instance = [a2d, b2d, matixRJS_A, matixRJS_B, mlMatix_A, mlMatix_B];
+            const instance = [a, b, A, B, mlA, mlB];
 
             result[i] = instance;
 
