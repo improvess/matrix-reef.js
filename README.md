@@ -69,7 +69,6 @@ Should output:
 ```
 Elapsed time: 0.76 secs for 5000 epochs.
 ```
-
 ## How to run the benchmarks
 
 The benchmark code is [here](https://github.com/doleron/matrix-reef.js/blob/master/benchmarks/multiplication.benchmark.js).
@@ -78,4 +77,6 @@ Execute the following command to run benchmarks yourself:
 ```bash
 node benchmarks/multiplication.benchmark.js 10 4 10 5
 ```
-The command above executes chunks of 10 `4x10` by `10x5` matrix multiplications. Ps.: Use `--max-old-space-size=4096` when running huge matrices. 
+The command above executes chunks of 10 `4x10` by `10x5` matrix multiplications. Ps.: Use `--max-old-space-size=4096` when running huge matrices.
+## New features, bugs and collaboration
+Do not hesitate to open a new issue whenever you find something wrong or does not working as expected. Suggestions of new features are pretty welcome as well as collaborations by PR test cases, benchmarks or even new features.
