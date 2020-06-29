@@ -1,5 +1,5 @@
 
-## adding matrices
+## adding and subtracting
 
 ```javascript
 
@@ -12,5 +12,9 @@ const B = new Matrix([
     [2, 1, 0], 
     [2, 0, 2]
 ]);
+
+const C = A.add(B);
+
+const D = A.subtract(B);
 
 ```

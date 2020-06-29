@@ -13,7 +13,7 @@ But if you are looking for something faster consider to use this library.
 
 ## Benchmarks
 
-Some Matrix multiplication benchmarks using [Benchmark.js](https://github.com/bestiejs/benchmark.js):
+Some Matrix multiplication benchmarks using <a href="https://github.com/bestiejs/benchmark.js" target="_blank">Benchmark.js</a>
 
 |                |    2x2    |    3x3    |   4x4   |  16x16 | 32x32 | 256x256 | 512x512 |
 |----------------|:---------:|:---------:|:-------:|:------:|:-----:|:-------:|:-------:|
