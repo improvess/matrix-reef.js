@@ -53,7 +53,7 @@ const C = A.multiply(B);
 const D = A.add(C);
 const E = D.transpose();
 const F = E.multiplyByScalar(Math.PI);
-const G = F.map((i, j) => i * j);
+const G = F.map((i, j) => Math.exp(-2*i + j));
 const val = F.get(0, 1);
 A.set(Math.PI*val, 0, 1);
 console.log(A.get(0, 1));
@@ -73,8 +73,8 @@ Elapsed time: 0.76 secs for 5000 epochs.
 ## How to run the benchmarks
 
 The benchmark code is [here](https://github.com/doleron/matrix-reef.js/blob/master/benchmarks/multiplication.benchmark.js).
-It compares the performance of matrix-multiplication using Matrix-reef.js, [Math.js](https://github.com/josdejong/mathjs) and [ml-Matrix](https://github.com/mljs/matrix).
-In order to run the benchmarks, execute the following command:
+It compares the matrix-multiplication performance of Matrix-reef.js, [Math.js](https://github.com/josdejong/mathjs) and [ml-Matrix](https://github.com/mljs/matrix).
+Execute the following command to run benchmarks yourself:
 ```bash
 node benchmarks/multiplication.benchmark.js 10 4 10 5
 ```
