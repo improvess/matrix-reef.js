@@ -60,10 +60,12 @@ $ npm install matrix-reef.js
 - accessing: get, set, row, col, diagonal and path.
 - arithmetics: [add, subtract](examples/arithmetics.md#adding-and-subtracting), add scalar, add row and add column.
 - multiplication: multiply by scalar, dot multiply and matrix-multiplication.
-- functional: map, max, min, sum, rowWise, colWise and chain call.
-- matrices: size, transpose, determinant, inverse, reshape and rank.
+- functional: map, max, min, sum, product, rowWise, colWise and chain call.
+- matrices: dimension, rows, cols, transpose, determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.
+- query: isSquared, isDiagonal, isUpperTriangular, isLowerTriangular
 - memory saving: in-place operations, slices and views.
 - optimization: Matrix2D, Matrix3D, Matrix4D, Vector, Vector2D, Vector3D, Vector4D and Sparse Matrix.
+- miscellaneous: print out, convert to array, shuffle and comparing.
 ## Real world examples
 
 This [example](examples/ann/training.ann.js) shows how to train a neural network using the [Iris](https://archive.ics.uci.edu/ml/datasets/iris) dataset and only `add`, `multiply`, `dotMultiply` and `transpose`:
