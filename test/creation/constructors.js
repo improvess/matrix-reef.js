@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { Matrix, zeros } = require('../../index');
+const { Matrix, zeros, ones, identity } = require('../../index');
 const testUtils = require('../test.utils');
 
 
@@ -61,14 +61,21 @@ describe('blind create matrices from 1D or 2D data', function () {
 
 });
 
-describe('zeros', function () {
+describe('zeros, ones and identities', function () {
 
-    it('1D zeros', function () {
-
-        const expected = [0, 0, 0, 0, 0, 0, 0];
+    it('1D', function () {
 
         try {
+            const expected = [0, 0, 0, 0, 0, 0, 0];
             const matrix = zeros(expected.length);
+            assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [1, 1, 1, 1];
+            const matrix = ones(expected.length);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -76,12 +83,43 @@ describe('zeros', function () {
 
     });
 
-    it('2D zeros', function () {
-
-        const expected = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    it('2D', function () {
 
         try {
+            const expected = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
             const matrix = zeros(expected.length, expected[0].length);
+            assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [[1, 1, 1], [1, 1, 1], [1, 1, 1]];
+            const matrix = ones(expected.length, expected[0].length);
+            assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [[1]];
+            const matrix = identity(expected.length);
+            assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+            const matrix = identity(expected.length);
+            assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 1]];
+            const matrix = identity(expected.length);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -96,6 +134,27 @@ describe('zeros', function () {
             assert.fail("Not thrown error for negative times");
         } catch (e){
             assert.ok(e.message.startsWith("illegal times to repeat -10"));
+        }
+
+        try {
+            const matrix = ones(-10);
+            assert.fail("Not thrown error for negative times");
+        } catch (e){
+            assert.ok(e.message.startsWith("illegal times to repeat -10"));
+        }
+
+        try {
+            const matrix = identity(-10);
+            assert.fail("Not thrown error for negative size");
+        } catch (e){
+            assert.ok(e.message.startsWith("illegal negative size -10"));
+        }
+
+        try {
+            const matrix = identity();
+            assert.fail("Not thrown error for undefined size");
+        } catch (e){
+            assert.ok(e.message.startsWith("size not defined"));
         }
 
     });

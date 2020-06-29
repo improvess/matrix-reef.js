@@ -1,3 +1,4 @@
+
 function _allocate(size) {
     return new Array(size);
 }
@@ -9,6 +10,21 @@ module.exports = {
         let result = _allocate(times);
         for (let i = 0; i < times; ++i) {
             result[i] = value;
+        }
+        return result;
+    },
+
+    identity: function (size) {
+        if (typeof size === "undefined") throw new Error("size not defined");
+        if (size <= 0) throw new Error("illegal negative size " + size);
+        const totalSize = size * size;
+        let result = _allocate(totalSize);
+        let _diag = 0;
+        for (let i = 0; i < totalSize; ++i) {
+            if (i == _diag) {
+                result[i] = 1.0;
+                _diag += size + 1;
+            } else result[i] = 0.0;
         }
         return result;
     },
