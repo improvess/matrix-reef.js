@@ -68,6 +68,8 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [0, 0, 0, 0, 0, 0, 0];
             const matrix = zeros(expected.length);
+            assert.equal(7, matrix.rows);
+            assert.equal(1, matrix.cols);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -76,6 +78,8 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [1, 1, 1, 1];
             const matrix = ones(expected.length);
+            assert.equal(4, matrix.rows);
+            assert.equal(1, matrix.cols);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -88,6 +92,8 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
             const matrix = zeros(expected.length, expected[0].length);
+            assert.equal(3, matrix.rows);
+            assert.equal(3, matrix.cols);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -96,6 +102,8 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [[1, 1, 1], [1, 1, 1], [1, 1, 1]];
             const matrix = ones(expected.length, expected[0].length);
+            assert.equal(3, matrix.rows);
+            assert.equal(3, matrix.cols);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -104,6 +112,8 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [[1]];
             const matrix = identity(expected.length);
+            assert.equal(1, matrix.rows);
+            assert.equal(1, matrix.cols);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -112,6 +122,8 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
             const matrix = identity(expected.length);
+            assert.equal(3, matrix.rows);
+            assert.equal(3, matrix.cols);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
