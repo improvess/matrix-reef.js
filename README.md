@@ -13,7 +13,7 @@ But if you are looking for something faster consider to use this library.
 
 ## Benchmarks
 
-Some Matrix multiplication benchmarks using <a href="https://github.com/bestiejs/benchmark.js" target="_blank">Benchmark.js</a>
+Some Matrix multiplication benchmarks:
 
 |                |    2x2    |    3x3    |   4x4   |  16x16 | 32x32 | 256x256 | 512x512 |
 |----------------|:---------:|:---------:|:-------:|:------:|:-----:|:-------:|:-------:|
@@ -29,8 +29,6 @@ Matrix-reef.js is still in its early stages. Some must-to-do features are not av
 ## How to use
 
 ```javascript
-const { Matrix } = require('matrix-reef.js');
-
 const A = new Matrix([
     [1, 2], 
     [3, 4], 
@@ -50,6 +48,10 @@ See [examples](#API-by-examples) below for a complete list of functionalities an
 ### Node.js
 ```bash
 $ npm install matrix-reef.js
+```
+and include
+```javascript
+const { Matrix } = require('matrix-reef.js');
 ```
 ### CDN
 ```html
@@ -79,8 +81,7 @@ Elapsed time: 0.76 secs for 5000 epochs.
 ```
 ## How to run the benchmarks
 
-The benchmark code is [here](blob/master/benchmarks/multiplication.benchmark.js).
-It compares the matrix-multiplication performance of Matrix-reef.js, [Math.js](https://github.com/josdejong/mathjs) and [ml-Matrix](https://github.com/mljs/matrix).
+The benchmark code is [here](blob/master/benchmarks/multiplication.benchmark.js). This program uses <a href="https://github.com/bestiejs/benchmark.js" target="_blank">Benchmark.js</a> to compare the matrix-multiplication performance of Matrix-reef.js and two other Java Script Matrix implementations: <a href="https://github.com/josdejong/mathjs" target="_blank">Math.js</a> and <a href="https://github.com/mljs/matrix" target="_blank">ml-Matrix</a>.
 Execute the following command to run a benchmark yourself:
 ```bash
 node benchmarks/multiplication.benchmark.js 10 4 10 5
