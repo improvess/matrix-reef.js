@@ -6,7 +6,7 @@
 [![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)](https://github.com/doleron/matrix-reef.js/graphs/commit-activity)
 [![License](https://img.shields.io/github/license/doleron/matrix-reef.js.svg)](https://github.com/doleron/matrix-reef.js/blob/master/LICENSE)
 
-A faster Matrix for the Java Script World
+A faster Matrix for the Java Script World.
 
 There are some awesome matrix libraries for Java Script in the wild.
 But if you are looking for something faster consider to use this library.
@@ -22,6 +22,9 @@ Some [Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication
 | Math.js        |   129,336 |   101,767 |  63,528 |  3,574 |   553 |    0.92 |    0.08 |
 
 The values represent the number of operations per second. See [How to run the benchmarks](https://github.com/doleron/matrix-reef.js#how-to-run-the-benchmarks) below for more details.
+
+## Disclaimer
+Matrix-reef.js is still in its early stages. Some must-to-do features are not available, there is no docs, tutorials and no TypeScript. Thus, I'm afraid that Matrix-reef.js is not ready for production yet.
 
 ## How to use
 
