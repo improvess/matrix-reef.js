@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.com/doleron/matrix-reef.js.svg?branch=master)](https://travis-ci.com/doleron/matrix-reef.js)
 [![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-reef.js/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-reef.js?branch=master)
+[![Version](https://img.shields.io/npm/v/matrix-reef.js.svg)](https://www.npmjs.com/package/matrix-reef.js)
+[![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)](https://github.com/doleron/matrix-reef.js/graphs/commit-activity)
+[![License](https://img.shields.io/github/license/doleron/matrix-reef.js.svg)](https://github.com/doleron/matrix-reef.js/blob/master/LICENSE)
 
 A faster Matrix for the Java Script World
 

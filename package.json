@@ -1,6 +1,6 @@
 {
   "name": "matrix-reef.js",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Fast Matrix Library for Java Script",
   "main": "index.js",
   "directories": {
