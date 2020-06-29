@@ -10,7 +10,7 @@ script:
   - npm run test
   - npm run coverage
 
-  deploy:
+deploy:
 - provider: npm
   email: $NPM_AUTH_EMAIL
   api_key: $NPM_AUTH_TOKEN
