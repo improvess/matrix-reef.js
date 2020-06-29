@@ -23,19 +23,6 @@ Some [Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication
 
 The values represent the number of operations per second. See [How to run the benchmarks](https://github.com/doleron/matrix-reef.js#how-to-run-the-benchmarks) below for more details.
 
-## How to install
-
-### Node.js
-Run the command:
-```bash
-$ npm install matrix-reef.js
-```
-### CDN
-Put it somewhere in your html:
-```html
-<script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
-
-```
 ## How to use
 
 ```javascript
@@ -58,9 +45,20 @@ const E = D.transpose();
 const F = E.multiplyByScalar(Math.PI);
 const G = F.map((i, j) => Math.exp(-2*i + j));
 const val = F.get(0, 1);
-A.set(Math.PI*val, 0, 1);
-console.log(A.get(0, 1));
+console.log(val);
 ```
+## How to install
+
+### Node.js
+```bash
+$ npm install matrix-reef.js
+```
+### CDN
+```html
+<script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
+
+```
+
 ## Real world example
 
 This [example](https://github.com/doleron/matrix-k/blob/master/example/training.ann.js) shows how to train a neural network using the [Iris](https://archive.ics.uci.edu/ml/datasets/iris) dataset and only `add`, `multiply`, `dotMultiply` and `transpose`:
