@@ -37,6 +37,14 @@ function _Matrix(data, rows, cols) {
         return result;
     }
 
+    this.addScalar = function(s, result) {
+        if (!result) result = _repeat(this.rows, this.cols);
+        lowLevelApi.map(this.storage, function(val) {
+            return val + s;
+        }, result.storage);
+        return result;
+    }
+
     this.map = function(fun, result) {
         if (!result) result = _repeat(this.rows, this.cols);
         lowLevelApi.map(this.storage, fun, result.storage);

@@ -106,6 +106,21 @@ describe('basic multiplications', function () {
 
     });
 
+    it("one by one", function () {
+
+        const A = new MatrixReef.Matrix([2]); 
+        
+        const B = new MatrixReef.Matrix([3]); 
+
+        const C = A.multiply(B);
+
+        assert.equal(1, C.rows); 
+        assert.equal(1, C.cols); 
+
+        assert.equal(6, C.get(0, 0)); 
+
+    });
+
 });
 
 /**

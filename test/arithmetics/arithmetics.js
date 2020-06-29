@@ -163,3 +163,47 @@ describe('checking inplace operations', function () {
     });
 
 });
+
+describe('add scalar', function () {
+
+    it('adding 7', function () {
+
+        try {
+            const expected = [[8, 11], [9, 12], [10, 13]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = A.addScalar(7);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('subtracting 3', function () {
+
+        try {
+            const expected = [[-2, 1], [-1, 2], [0, 3]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = A.addScalar(-3);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('inplace adding scalar', function () {
+
+        try {
+            const expected = [[-2, 1], [-1, 2], [0, 3]];
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const C = zeros(3, 2);
+            A.addScalar(-3, C);
+            assert.ok(testUtils.compare(C, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+});

@@ -66,7 +66,7 @@ const { Matrix } = require('matrix-reef.js');
 - matrices: dimension, rows, cols, transpose, determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.
 - query: isSquared, isDiagonal, isUpperTriangular, isLowerTriangular
 - memory saving: in-place operations, slices and views.
-- optimization: Matrix2D, Matrix3D, Matrix4D, Vector, Vector2D, Vector3D, Vector4D and Sparse Matrix.
+- optimization: Matrix2D, Matrix3D, Matrix4D, Vector, RowVector, ColumnVector, Vector2D, Vector3D, Vector4D and Sparse Matrix.
 - miscellaneous: print out, convert to array, shuffle and comparing.
 ## Real world examples
 
