@@ -44,7 +44,7 @@ const B = new Matrix([
 
 const C = A.multiply(B);
 ```
-See [examples](examples/README.md) for a complete list of functionalities and how to use them.
+See [examples](#API-by-examples) below for a complete list of functionalities and how to use them.
 ## How to install
 
 ### Node.js
@@ -54,10 +54,17 @@ $ npm install matrix-reef.js
 ### CDN
 ```html
 <script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
-
 ```
-
-## Real world example
+# API by examples
+- creating: [constructors](creational.md#constructors), [zeros, ones](creational.md#zeros-and-ones), [identity](creational.md#identity-aka-eye), diagonal and cloning.
+- accessing: get, set, row, col, diagonal and path.
+- arithmetics: [add, subtract](arithmetics.md#adding-and-subtracting), add scalar, add row and add column.
+- multiplication: multiply by scalar, dot multiply and matrix-multiplication.
+- functional: map, max, min, sum, rowWise, colWise and chain call.
+- matrices: size, transpose, determinant, inverse, reshape and rank.
+- memory saving: in-place operations, slices and views.
+- optimization: Matrix2D, Matrix3D, Matrix4D, Vector, Vector2D, Vector3D, Vector4D and Sparse Matrix.
+## Real world examples
 
 This [example](examples/ann/training.ann.js) shows how to train a neural network using the [Iris](https://archive.ics.uci.edu/ml/datasets/iris) dataset and only `add`, `multiply`, `dotMultiply` and `transpose`:
 
