@@ -153,6 +153,11 @@ module.exports = {
     get : function(data, rows, cols, r, c) {
         const index = cols * r + c;
         return data[index];
+    },
+
+    set : function(data, rows, cols, r, c, val) {
+        const index = cols * r + c;
+        data[index] = val;
     }
 
 }

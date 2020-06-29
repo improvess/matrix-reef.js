@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/doleron/matrix-reef.js.svg?branch=master)](https://travis-ci.com/doleron/matrix-reef.js)
 [![Coverage Status](https://coveralls.io/repos/github/doleron/matrix-reef.js/badge.svg?branch=master&service=github)](https://coveralls.io/github/doleron/matrix-reef.js?branch=master)
 
-There are some awesome matrix libraries for Java Script in the wild but if you are looking for something faster consider to use this matrix-reef dor JS.
+There are some awesome matrix libraries for Java Script in the wild but if you are looking for something faster consider to use matrix-reef dor JS.
 
 ## Benchmarks
 
@@ -28,7 +28,7 @@ $ npm install matrix-reef.js
 ### CDN
 Put it somewhere in your html:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/matrix-reef.js/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
 
 ```
 ## How to use
@@ -48,6 +48,13 @@ const B = new Matrix([
 ]); // create a 2x2 matrix
 
 const C = A.multiply(B);
+const D = A.add(C);
+const E = D.transpose();
+const F = E.multiplyByScalar(Math.PI);
+const G = F.map((i, j) => i * j);
+const val = F.get(0, 1);
+A.set(Math.PI*val, 0, 1);
+console.log(A.get(0, 1));
 ```
 ## Real world example
 

@@ -88,3 +88,49 @@ describe('map', function () {
 
     });
 });
+
+
+
+describe('get set', function () {
+
+    it('basic', function () {
+
+        try {
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            const val = A.get(0, 1);
+            assert.equal(4, A.get(0, 1));
+            const newVal = val * 2;
+            A.set(newVal, 0, 1);
+            assert.equal(8, A.get(0, 1));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('not set undefined', function () {
+
+        try {
+            const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
+            A.set(undefined, 0, 1);
+            assert.equal(4, A.get(0, 1));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+    it('copy initial parameters', function () {
+
+        try {
+            const original = [[2, 8], [4, 10], [6, 12]];
+            const A = new Matrix(original);
+            A.set(Math.PI, 0, 1);
+            assert.equal(8, original[0][1]);
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+    });
+
+});

@@ -57,6 +57,11 @@ function _Matrix(data, rows, cols) {
         return lowLevelApi.get(this.storage, this.rows, this.cols, r, c);
     }
 
+    this.set = function(val, r, c) {
+        if (typeof val !== "undefined")
+            lowLevelApi.set(this.storage, this.rows, this.cols, r, c, val);
+    }
+
 }
 
 function _zerosMatrix(rows, cols) {
