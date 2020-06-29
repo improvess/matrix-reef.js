@@ -56,9 +56,9 @@ $ npm install matrix-reef.js
 <script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
 ```
 # API by examples
-- creating: [constructors](creational.md#constructors), [zeros, ones](creational.md#zeros-and-ones), [identity](creational.md#identity-aka-eye), diagonal and cloning.
+- creating: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), diagonal and cloning.
 - accessing: get, set, row, col, diagonal and path.
-- arithmetics: [add, subtract](arithmetics.md#adding-and-subtracting), add scalar, add row and add column.
+- arithmetics: [add, subtract](examples/arithmetics.md#adding-and-subtracting), add scalar, add row and add column.
 - multiplication: multiply by scalar, dot multiply and matrix-multiplication.
 - functional: map, max, min, sum, rowWise, colWise and chain call.
 - matrices: size, transpose, determinant, inverse, reshape and rank.
@@ -79,7 +79,7 @@ Elapsed time: 0.76 secs for 5000 epochs.
 
 The benchmark code is [here](blob/master/benchmarks/multiplication.benchmark.js).
 It compares the matrix-multiplication performance of Matrix-reef.js, [Math.js](https://github.com/josdejong/mathjs) and [ml-Matrix](https://github.com/mljs/matrix).
-Execute the following command to run benchmarks yourself:
+Execute the following command to run a benchmark yourself:
 ```bash
 node benchmarks/multiplication.benchmark.js 10 4 10 5
 ```
