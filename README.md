@@ -42,7 +42,7 @@ const B = new Matrix([
 
 const C = A.multiply(B);
 ```
-See [examples](#API-by-examples) below for a complete list of functionalities and how to use them.
+See [examples](#API-by-examples) below for a complete list of functionalities and demonstration of how to use them.
 ## How to install
 
 ### Node.js
