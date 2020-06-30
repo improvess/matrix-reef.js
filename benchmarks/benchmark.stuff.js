@@ -1,8 +1,12 @@
-const MatrixReefJS = require('../index');
-const MathJS = require('mathjs');
-const MLMatrix = require('ml-matrix');
 const Benchmark = require('benchmark');
 const testUtils = require('../test/test.utils');
+
+const MatrixReefJS = require('../index');
+
+// Libraries to compare
+const MathJS = require('mathjs');
+const MLMatrix = require('ml-matrix');
+const sylvester = require('sylvester')
 
 module.exports = {
 
@@ -27,7 +31,10 @@ module.exports = {
             const mlA = new MLMatrix.Matrix(a);
             const mlB = new MLMatrix.Matrix(b);
 
-            const instance = [a, b, A, B, mlA, mlB];
+            const sylA = sylvester.Matrix.create(a);
+            const sylB = sylvester.Matrix.create(b);
+
+            const instance = [a, b, A, B, mlA, mlB, sylA, sylB];
 
             result[i] = instance;
 
@@ -43,13 +50,13 @@ module.exports = {
         const size = data.length;
         suite
 
-            .add('Matrix-Reef JS', function () {
+            .add('sylvester', function () {
                 for (let i = 0; i < size; ++i) {
 
                     const matrices = data[i];
 
-                    const A = matrices[2];
-                    const B = matrices[3];
+                    const A = matrices[6];
+                    const B = matrices[7];
 
                     A.multiply(B);
 
@@ -67,7 +74,19 @@ module.exports = {
 
                 }
             })
-            /*.add('MathJS', function () {
+            .add('Matrix-Reef JS', function () {
+                for (let i = 0; i < size; ++i) {
+
+                    const matrices = data[i];
+
+                    const A = matrices[2];
+                    const B = matrices[3];
+
+                    A.multiply(B);
+
+                }
+            })
+            .add('MathJS', function () {
                 for (let i = 0; i < size; ++i) {
 
                     const matrices = data[i];
@@ -78,14 +97,14 @@ module.exports = {
                     MathJS.multiply(A, B);
 
                 }
-            })*/
+            })
             .on('cycle', function (event) {
                 console.log(String(event.target));
             })
             .on('complete', function () {
                 console.log('Fastest is ' + this.filter('fastest').map('name'));
             })
-            .run({ 'async': true });
+            .run({ 'async': false, initCount : 3 });
     }
 
 }
