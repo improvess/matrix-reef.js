@@ -26,3 +26,15 @@ const dimension = A.dim();
 // dimension is [2, 3]
 
 ```
+## transpose
+
+```javascript
+const A = new Matrix([
+    [1, 2, 3], 
+    [4, 5, 6], 
+]);
+
+const B = A.transpose();
+// B is [[1, 4], [2, 5], [3, 6]]
+
+```

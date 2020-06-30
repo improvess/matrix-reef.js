@@ -100,6 +100,22 @@ function _Matrix(data, rows, cols) {
         return [this._rows, this._cols];
     }
 
+    this.max = function() {
+        return lowLevelApi.max(this.storage, this._rows, this._cols);
+    }
+
+    this.min = function() {
+        return lowLevelApi.min(this.storage, this._rows, this._cols);
+    }
+
+    this.sum = function() {
+        return lowLevelApi.sum(this.storage);
+    }
+
+    this.product = function() {
+        return lowLevelApi.product(this.storage);
+    }
+
 }
 
 function _repeat(rows, cols, value) {

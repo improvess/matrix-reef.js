@@ -80,7 +80,7 @@ describe('map', function () {
             const expected = [[2, 8], [4, 10], [6, 12]];
             const A = new Matrix([[1, 4], [2, 5], [3, 6]]);
             const C = zeros(3, 2);
-            A.map(function(val) {return val * 2;}, C);
+            A.map(function (val) { return val * 2; }, C);
             assert.ok(testUtils.compare(C, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
@@ -129,6 +129,106 @@ describe('get set', function () {
             assert.fail(e.message);
         }
 
+    });
+
+});
+
+describe('sum, product', function () {
+
+    it("basic", function () {
+
+        const A = new Matrix([
+            [1, 2],
+            [3, 4],
+            [5, 6]
+        ]);
+
+        const B = new Matrix([
+            [2, 1],
+            [2, -11]
+        ]);
+
+        const s = A.sum();
+        const p = B.product();
+
+        assert.equal(21, s);
+        assert.equal(-44, p);
+
+        assert.equal(0, new Matrix([]).product());
+
+    });
+
+});
+
+describe('max', function () {
+
+    it("max", function () {
+        const A = new Matrix([
+            [1, 2, 3], 
+            [4, 0, 6], 
+            [4, 9, 9], 
+        ]);
+        
+        const result = A.max();
+        assert.equal(9, result[0]);
+        assert.equal(2, result[1]);
+        assert.equal(1, result[2]);
+    });
+
+    it("linear", function () {
+        const A = new Matrix([
+            1, 2, 3, 
+            4, 0, 6, 
+            4, 9, 9, 
+        ]);
+        
+        const result = A.max();
+        assert.equal(9, result[0]);
+        assert.equal(7, result[1]);
+        assert.equal(0, result[2]);
+    });
+
+    it("empty", function () {
+        const A = new Matrix([]);
+        const result = A.max();
+        assert.ok(!result);
+    });
+
+});
+
+describe('min', function () {
+
+    it("min", function () {
+        const A = new Matrix([
+            [1, -2, 3], 
+            [4, 0, -3], 
+            [4, -3, 1], 
+        ]);
+        
+        const result = A.min();
+        assert.equal(-3, result[0]);
+        assert.equal(1, result[1]);
+        assert.equal(2, result[2]);
+
+    });
+
+    it("linear", function () {
+        const A = new Matrix([
+            1, 2, 3, 
+            4, 0, 6, 
+            4, 9, 9, 
+        ]);
+        
+        const result = A.min();
+        assert.equal(0, result[0]);
+        assert.equal(4, result[1]);
+        assert.equal(0, result[2]);
+    });
+
+    it("empty", function () {
+        const A = new Matrix([]);
+        const result = A.min();
+        assert.ok(!result);
     });
 
 });

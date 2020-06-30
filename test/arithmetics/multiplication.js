@@ -131,7 +131,7 @@ describe('basic multiplications', function () {
  */
 describe('blind check multiplication', function () {
 
-    const size = 100000;
+    const size = 1000;
 
     this.timeout(size / 2);
 

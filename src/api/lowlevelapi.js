@@ -187,6 +187,55 @@ module.exports = {
     set : function(data, rows, cols, r, c, val) {
         const index = cols * r + c;
         data[index] = val;
+    },
+
+    max : function(storage, rows, cols) {
+        if (storage.length > 0) {
+            let index = 0;
+            let maxValue = storage[0]
+            for (var r = 1, size = storage.length; r < size; ++r) {
+                const val = storage[r];
+                if (maxValue < val) {
+                    index = r;
+                    maxValue = val;
+                }
+            }
+            const i = Math.floor(index / cols);
+            return [maxValue, i, index - (i * cols)];
+        } else return false;
+    },
+
+    min : function(storage, rows, cols) {
+        if (storage.length > 0) {
+            let index = 0;
+            let minValue = storage[0]
+            for (var r = 1, size = storage.length; r < size; ++r) {
+                const val = storage[r];
+                if (minValue > val) {
+                    index = r;
+                    minValue = val;
+                }
+            }
+            const i = Math.floor(index / cols);
+            return [minValue, i, index - (i * cols)];
+        } else return false;
+    },
+
+    sum : function(storage) {
+        let result = 0.;
+        for (var r = 0, size = storage.length; r < size; ++r) {
+            result += storage[r];
+        }
+        return result;
+    },
+
+    product : function(storage) {
+        const size = storage.length;
+        let result = size ? 1. : 0.;
+        for (var r = 0; r < size; ++r) {
+            result *= storage[r];
+        }
+        return result;
     }
 
 }
