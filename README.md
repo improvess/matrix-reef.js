@@ -58,16 +58,17 @@ const { Matrix } = require('matrix-reef.js');
 <script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
 ```
 # API by examples
-- creating: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), diagonal and [cloning](examples/creational.md#clone).
-- accessing: [get, set](examples/accessing.md#constructors), row, col, diagonal and path.
-- arithmetics: [add, subtract](examples/arithmetics.md#get-and-set), [add scalar](examples/arithmetics.md#adding-scalar-to-matrix), [add row](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix and [add column](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix.
-- multiplication: [multiply by scalar](multiplication.md#multiply-by-scalar), [dot multiply](multiplication.md#dot-multiplication) and [matrix multiplication](multiplication.md#matrix-multiplication).
-- functional: [map](examples/functional.md#map), [max](examples/functional.md#max), [min](examples/functional.md#min), [sum](examples/functional.md#sum), [product](examples/functional.md#product), rowWise, colWise and [chaining](examples/functional.md#chaining) calls.
-- matrices: [dimension](examples/matrices.md#dimension), [rows, cols](examples/matrices.md#rows-and-cols), [transpose](examples/matrices.md#transpose), determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.
-- query: isSquared, isDiagonal, isUpperTriangular and isLowerTriangular.
-- memory saving: in-place operations, slices and views.
-- optimization: Matrix2D, Matrix3D, Matrix4D, Vector, RowVector, ColumnVector, Vector2D, Vector3D, Vector4D and Sparse Matrix.
-- miscellaneous: print out, convert to array, shuffle and comparing.
+- **creating**: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), from diagonal and [cloning](examples/creational.md#clone).
+- **accessing**: [get, set](examples/accessing.md#constructors), row, col, diagonal and path.
+- **arithmetics**: [add, subtract](examples/arithmetics.md#get-and-set), [add scalar](examples/arithmetics.md#adding-scalar-to-matrix), [add row](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix and [add column](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix.
+- **multiplication**: [multiply by scalar](multiplication.md#multiply-by-scalar), [dot multiply](multiplication.md#dot-multiplication) and [matrix multiplication](multiplication.md#matrix-multiplication).
+- **functional**: [map](examples/functional.md#map), [max](examples/functional.md#max), [min](examples/functional.md#min), [sum](examples/functional.md#sum), [product](examples/functional.md#product), rowWise, colWise and [chaining](examples/functional.md#chaining) calls.
+- **matrices**: [dimension](examples/matrices.md#dimension), [rows, cols](examples/matrices.md#rows-and-cols), [transpose](examples/matrices.md#transpose), determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.
+- **query**: isSquared, isDiagonal, isUpperTriangular and isLowerTriangular.
+- **memory saving**: in-place operations, slices and views.
+- **optimization**: Matrix2D, Matrix3D, Matrix4D, Vector, RowVector, ColumnVector, Vector2D, Vector3D, Vector4D and Sparse Matrix.
+- **machine learning**: convolution, de-convolution, pooling, padding and stribes.
+- **miscellaneous**: print out, convert to array, shuffle and comparing.
 ## Real world examples
 
 This [example](examples/ann/training.ann.js) shows how to train a neural network using the [Iris](https://archive.ics.uci.edu/ml/datasets/iris) dataset and only `add`, `multiply`, `dotMultiply` and `transpose`:
