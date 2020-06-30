@@ -21,8 +21,8 @@ describe('basic multiplications', function () {
         
         const C = A.multiply(B);
 
-        assert.equal(3, C.rows); 
-        assert.equal(2, C.cols); 
+        assert.equal(3, C.rows()); 
+        assert.equal(2, C.cols()); 
 
         assert.equal(6, C.get(0, 0)); assert.equal(1, C.get(0, 1));
         assert.equal(14, C.get(1, 0)); assert.equal(3, C.get(1, 1));
@@ -48,8 +48,8 @@ describe('basic multiplications', function () {
 
         const C = A.multiply(B);
 
-        assert.equal(5, C.rows); 
-        assert.equal(4, C.cols); 
+        assert.equal(5, C.rows()); 
+        assert.equal(4, C.cols()); 
 
         assert.equal(  9, C.get(0, 0)); assert.equal(31, C.get(0, 1)); assert.equal( 14, C.get(0, 2)); assert.equal(11, C.get(0, 3));
         assert.equal( 17, C.get(1, 0)); assert.equal(33, C.get(1, 1)); assert.equal( 24, C.get(1, 2)); assert.equal(15, C.get(1, 3));
@@ -74,8 +74,8 @@ describe('basic multiplications', function () {
 
         const C = A.multiply(B);
 
-        assert.equal(4, C.rows); 
-        assert.equal(3, C.cols); 
+        assert.equal(4, C.rows()); 
+        assert.equal(3, C.cols()); 
 
         assert.equal( 2, C.get(0, 0)); assert.equal(1, C.get(0, 1)); assert.equal( 2, C.get(0, 2));
         assert.equal( 6, C.get(1, 0)); assert.equal(3, C.get(1, 1)); assert.equal( 6, C.get(1, 2));
@@ -98,8 +98,8 @@ describe('basic multiplications', function () {
 
         const C = A.multiply(B);
 
-        assert.equal(2, C.rows); 
-        assert.equal(1, C.cols); 
+        assert.equal(2, C.rows()); 
+        assert.equal(1, C.cols()); 
 
         assert.equal( 2.141592653589793, C.get(0, 0)); 
         assert.equal(-1.718281828459045, C.get(1, 0)); 
@@ -114,8 +114,8 @@ describe('basic multiplications', function () {
 
         const C = A.multiply(B);
 
-        assert.equal(1, C.rows); 
-        assert.equal(1, C.cols); 
+        assert.equal(1, C.rows()); 
+        assert.equal(1, C.cols()); 
 
         assert.equal(6, C.get(0, 0)); 
 

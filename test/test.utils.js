@@ -11,8 +11,8 @@ module.exports = {
         let result = true;
         if (!matrix) throw new Error("Matrix not provided");
         if (!array) throw new Error("array not provided");
-        const rows = matrix.rows;
-        const cols = matrix.cols;
+        const rows = matrix.rows();
+        const cols = matrix.cols();
         if (!rows || !cols) 
             throw new Error("Matrix rows/cols not defined");
         if (rows != array.length) throw new Error("Matrix rows and array length does not match");

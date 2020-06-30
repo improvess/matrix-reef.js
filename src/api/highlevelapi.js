@@ -4,41 +4,41 @@ function _Matrix(data, rows, cols) {
 
     this.storage = data;
     this.isMatrix = true;
-    this.rows = rows;
-    this.cols = cols;
+    this._rows = rows;
+    this._cols = cols;
 
     this.add = function(M, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
+        if (!result) result = _repeat(this._rows, this._cols);
         lowLevelApi.add(this.storage, M.storage, result.storage);
         return result;
     }
 
     this.subtract = function(M, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
+        if (!result) result = _repeat(this._rows, this._cols);
         lowLevelApi.subtract(this.storage, M.storage, result.storage);
         return result;
     }
 
     this.dotMultiply = function(M, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
+        if (!result) result = _repeat(this._rows, this._cols);
         lowLevelApi.dotMultiply(this.storage, M.storage, result.storage);
         return result;
     }
 
     this.multiply = function(E, result) {
-        if (!result) result = _repeat(this.rows, E.cols);
-        lowLevelApi.multiply(this.storage, E.storage, this.rows, this.cols, E.rows, E.cols, result.storage);
+        if (!result) result = _repeat(this._rows, E._cols);
+        lowLevelApi.multiply(this.storage, E.storage, this._rows, this._cols, E._rows, E._cols, result.storage);
         return result;
     }
 
     this.multiplyByScalar = function(s, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
+        if (!result) result = _repeat(this._rows, this._cols);
         lowLevelApi.multiplyByScalar(this.storage, s, result.storage);
         return result;
     }
 
     this.addScalar = function(s, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
+        if (!result) result = _repeat(this._rows, this._cols);
         lowLevelApi.map(this.storage, function(val) {
             return val + s;
         }, result.storage);
@@ -46,8 +46,8 @@ function _Matrix(data, rows, cols) {
     }
 
     this.addColumn = function(column, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
-        lowLevelApi.map2d(this.storage, this.rows, this.cols, 
+        if (!result) result = _repeat(this._rows, this._cols);
+        lowLevelApi.map2d(this.storage, this._rows, this._cols, 
             function(val, i, j) {
                 return val + column[i];
             }, result.storage);
@@ -55,8 +55,8 @@ function _Matrix(data, rows, cols) {
     }
 
     this.addRow = function(row, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
-        lowLevelApi.map2d(this.storage, this.rows, this.cols, 
+        if (!result) result = _repeat(this._rows, this._cols);
+        lowLevelApi.map2d(this.storage, this._rows, this._cols, 
             function(val, i, j) {
                 return val + row[j];
             }, result.storage);
@@ -64,28 +64,36 @@ function _Matrix(data, rows, cols) {
     }
 
     this.map = function(fun, result) {
-        if (!result) result = _repeat(this.rows, this.cols);
+        if (!result) result = _repeat(this._rows, this._cols);
         lowLevelApi.map(this.storage, fun, result.storage);
         return result;
     }
 
     this.transpose = function(result) {
-        if (!result) result = _repeat(this.cols, this.rows);
-        if (result.cols == 1 || result.rows == 1) {
+        if (!result) result = _repeat(this._cols, this._rows);
+        if (result._cols == 1 || result._rows == 1) {
             const rs = result.storage;
             const ts = this.storage;
             for (let i = 0, size = ts.length; i < size; ++i) rs[i] = ts[i];
-        } else lowLevelApi.transpose(this.storage, this.rows, this.cols, result.storage);
+        } else lowLevelApi.transpose(this.storage, this._rows, this._cols, result.storage);
         return result;
     }
 
     this.get = function(r, c) {
-        return lowLevelApi.get(this.storage, this.rows, this.cols, r, c);
+        return lowLevelApi.get(this.storage, this._rows, this._cols, r, c);
     }
 
     this.set = function(val, r, c) {
         if (typeof val !== "undefined")
-            lowLevelApi.set(this.storage, this.rows, this.cols, r, c, val);
+            lowLevelApi.set(this.storage, this._rows, this._cols, r, c, val);
+    }
+
+    this.rows = function() {
+        return this._rows;
+    }
+
+    this.cols = function() {
+        return this._cols;
     }
 
 }
