@@ -144,7 +144,7 @@ module.exports = {
     },
 
     initStorageFromRaw: function (data) {
-        
+        if (!data) throw new Error("data not provided");
         const rows = data.length;
         const cols = (data[0]) ? data[0].length : undefined;
         for (let i = 0; i < rows; ++i) {
