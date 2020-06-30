@@ -61,7 +61,7 @@ describe('blind create matrices from 1D or 2D data', function () {
 
 });
 
-describe('zeros, ones and identities', function () {
+describe('zeros, ones, clone and identities', function () {
 
     it('1D', function () {
 
@@ -82,6 +82,27 @@ describe('zeros, ones and identities', function () {
             assert.equal(4, matrix.rows());
             assert.equal(1, matrix.cols());
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [1, 2, 3, 1];
+            const matrix = new Matrix(expected);
+            const dolly = matrix.clone();
+            assert.equal(matrix.rows(), dolly.rows());
+            assert.equal(matrix.cols(), dolly.cols());
+            assert.ok(testUtils.compare(dolly, expected, 1e-8));
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
+        try {
+            const expected = [1, 4, 3, 1];
+            const matrix = new Matrix(expected);
+            const dolly = zeros(matrix.rows(), matrix.cols());
+            matrix.clone(dolly);
+            assert.ok(testUtils.compare(dolly, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
         }

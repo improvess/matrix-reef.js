@@ -116,6 +116,12 @@ function _Matrix(data, rows, cols) {
         return lowLevelApi.product(this.storage);
     }
 
+    this.clone = function(result) {
+        if (!result) result = _repeat(this._rows, this._cols);
+        lowLevelApi.clone(this.storage, result.storage);
+        return result;
+    }
+
 }
 
 function _repeat(rows, cols, value) {

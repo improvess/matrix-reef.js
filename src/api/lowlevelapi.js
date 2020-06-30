@@ -236,6 +236,11 @@ module.exports = {
             result *= storage[r];
         }
         return result;
+    }, 
+
+    clone : function(source, dest) {
+        for (let i = 0, size = source.length; i < size; ++i)
+            dest [i] = source [i];
     }
 
 }

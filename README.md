@@ -9,7 +9,7 @@
 A faster Matrix for the Java Script World.
 
 There are some awesome matrix libraries for Java Script in the wild.
-But if you are looking for something faster consider using this library.
+But if you are looking for something faster for numeric computing, consider using this library.
 
 ## Benchmarks
 
@@ -58,7 +58,7 @@ const { Matrix } = require('matrix-reef.js');
 <script src="https://cdn.jsdelivr.net/npm/matrix-reef.js@0.4.1/index.min.js"></script>
 ```
 # API by examples
-- creating: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), diagonal and cloning.
+- creating: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), diagonal and [cloning](examples/creational.md#clone).
 - accessing: [get, set](examples/accessing.md#constructors), row, col, diagonal and path.
 - arithmetics: [add, subtract](examples/arithmetics.md#get-and-set), [add scalar](examples/arithmetics.md#adding-scalar-to-matrix), [add row](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix and [add column](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix.
 - multiplication: [multiply by scalar](multiplication.md#multiply-by-scalar), [dot multiply](multiplication.md#dot-multiplication) and [matrix multiplication](multiplication.md#matrix-multiplication).
