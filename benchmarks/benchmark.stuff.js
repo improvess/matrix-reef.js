@@ -1,4 +1,4 @@
-const MatrixK = require('../index');
+const MatrixReefJS = require('../index');
 const MathJS = require('mathjs');
 const MLMatrix = require('ml-matrix');
 const Benchmark = require('benchmark');
@@ -21,8 +21,8 @@ module.exports = {
             const a = testUtils.randomArray(a_rows, a_cols, testUtils.rand50);
             const b = testUtils.randomArray(a_cols, b_cols, testUtils.rand50);
 
-            const A = new MatrixK.Matrix(a);
-            const B = new MatrixK.Matrix(b);
+            const A = new MatrixReefJS.Matrix(a);
+            const B = new MatrixReefJS.Matrix(b);
 
             const mlA = new MLMatrix.Matrix(a);
             const mlB = new MLMatrix.Matrix(b);

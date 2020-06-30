@@ -129,6 +129,15 @@ describe('get set', function () {
             assert.fail(e.message);
         }
 
+        try {
+            const original = [2, 8, 4, 10, 6, 12];
+            const A = new Matrix(original, 3, 2);
+            A.set(Math.PI, 0, 1);
+            assert.equal(8, original[1]);
+        } catch (e) {
+            assert.fail(e.message);
+        }
+
     });
 
 });

@@ -1,6 +1,7 @@
 const assert = require('assert');
 const { Matrix, zeros, ones, identity } = require('../../index');
 const testUtils = require('../test.utils');
+const lowLevelApi = require('../../src/api/lowlevelapi');
 
 
 describe('blind create matrices from 1D or 2D data', function () {
@@ -233,31 +234,38 @@ describe('wrong constructor calls', function () {
 
     it('non numeric data into the array', function () {
         try {
-            const matrix = new Matrix([[1, "2", 3], [4, 5, 6]]);
-            assert.fail("Not thrown error for non numeric data");
-        } catch (e) {
-            assert.ok(e.message.includes("is not a number:"));
-        }
 
-        try {
-            const matrix = new Matrix([[1], [2], "3", [4], [5]]);
-            assert.fail("Not thrown error for non numeric data");
-        } catch (e) {
-            assert.ok(e.message.includes("is not a number:"));
-        }
+            lowLevelApi.general.options.checkIsNumeric = true;
 
-        try {
-            const matrix = new Matrix([1, 2, 3, "4", 5, 6], 2, 3);
-            assert.fail("Not thrown error for non numeric data");
-        } catch (e) {
-            assert.ok(e.message.includes("is not a number:"));
-        }
+            try {
+                const matrix = new Matrix([[1, "2", 3], [4, 5, 6]]);
+                assert.fail("Not thrown error for non numeric data");
+            } catch (e) {
+                assert.ok(e.message.includes("is not a number:"));
+            }
 
-        try {
-            const matrix = new Matrix([1, 2, 3, false, 5, 6]);
-            assert.fail("Not thrown error for non numeric data");
-        } catch (e) {
-            assert.ok(e.message.includes("is not a number:"));
+            try {
+                const matrix = new Matrix([[1], [2], "3", [4], [5]]);
+                assert.fail("Not thrown error for non numeric data");
+            } catch (e) {
+                assert.ok(e.message.includes("is not a number:"));
+            }
+
+            try {
+                const matrix = new Matrix([1, 2, 3, "4", 5, 6], 2, 3);
+                assert.fail("Not thrown error for non numeric data");
+            } catch (e) {
+                assert.ok(e.message.includes("is not a number:"));
+            }
+
+            try {
+                const matrix = new Matrix([1, 2, 3, false, 5, 6]);
+                assert.fail("Not thrown error for non numeric data");
+            } catch (e) {
+                assert.ok(e.message.includes("is not a number:"));
+            }
+        } finally {
+            lowLevelApi.general.options.checkIsNumeric = false;
         }
 
     });

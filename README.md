@@ -78,14 +78,14 @@ $ node examples/training.ann.js
 ```
 Should output:
 ```
-Elapsed time: 0.76 secs for 5000 epochs.
+Elapsed time: 0.81 secs for 5000 epochs.
 ```
 ## How to run the benchmarks
 
-The benchmark code is [here](blob/master/benchmarks/multiplication.benchmark.js). This program uses <a href="https://github.com/bestiejs/benchmark.js" target="_blank">Benchmark.js</a> to compare the matrix-multiplication performance of Matrix-reef.js and two other Java Script Matrix implementations: <a href="https://github.com/josdejong/mathjs" target="_blank">Math.js</a> and <a href="https://github.com/mljs/matrix" target="_blank">ml-Matrix</a>.
+The benchmark code is [here](blob/master/benchmarks/multiplication.js). This program uses <a href="https://github.com/bestiejs/benchmark.js" target="_blank">Benchmark.js</a> to compare the matrix-multiplication performance of Matrix-reef.js and two other Java Script Matrix implementations: <a href="https://github.com/josdejong/mathjs" target="_blank">Math.js</a> and <a href="https://github.com/mljs/matrix" target="_blank">ml-Matrix</a>.
 Execute the following command to run a benchmark yourself:
 ```bash
-node benchmarks/multiplication.benchmark.js 10 4 10 5
+node benchmarks/multiplication.js 10 4 10 5
 ```
 The command above executes chunks of 10 `4x10` by `10x5` matrix multiplications. Ps.: Use `--max-old-space-size=4096` when running huge matrices.
 ## New features, bugs and collaboration

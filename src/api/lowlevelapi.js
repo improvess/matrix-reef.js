@@ -5,6 +5,11 @@ function _allocate(size) {
 
 module.exports = {
 
+    general : {
+        options : {
+            checkIsNumeric : false}
+    },
+
     repeat: function (value, times) {
         if (times <= 0) throw new Error("illegal times to repeat " + times);
         let result = _allocate(times);
@@ -139,28 +144,37 @@ module.exports = {
     },
 
     initStorageFromRaw: function (data) {
+        
         const rows = data.length;
         const cols = (data[0]) ? data[0].length : undefined;
         for (let i = 0; i < rows; ++i) {
             const candidateCols = data[i].length;
             if (typeof cols !== "undefined") {
                 if (cols != candidateCols) throw new Error("data is not a rectangular structure.");
-                const row = data[i];
-                for (let j = 0; j < cols; ++j)
-                    if (typeof row[j] !== 'number') throw new Error("data[" + i + "][" + j + "] is not a number: " + row[j]);
+                if (module.exports.general.options.checkIsNumeric) {
+                    const row = data[i];
+                    for (let j = 0; j < cols; ++j)
+                        if (typeof row[j] !== 'number') throw new Error("data[" + i + "][" + j + "] is not a number: " + row[j]);
+                }
             } else {
                 if (candidateCols) throw new Error("data is not a rectangular structure.");
-                if (!candidateCols && typeof data[i] !== 'number') throw new Error("data[" + i + "] is not a number: " + data[i]);
+                if (module.exports.general.options.checkIsNumeric && !candidateCols && typeof data[i] !== 'number') 
+                    throw new Error("data[" + i + "] is not a number: " + data[i]);
             }
         }
         if (typeof cols === "undefined") return [data.slice(), rows, (rows ? 1 : 0)];
-        const result = _allocate(rows * cols);
-        for (let i = 0; i < rows; ++i) {
-            const row = data[i];
-            const i_cols = i * cols;
-            for (let j = 0; j < cols; ++j) {
-                const index = i_cols + j;
-                result[index] = row[j];
+        const size = rows * cols;
+        const result = _allocate(size);
+        let rowCount = 0;
+        let colCount = 0;
+        let row = data[rowCount];
+        for (let i = 0; i < size; ++i) {
+            result[i] = row[colCount];
+            colCount++;
+            if (colCount == cols){
+                colCount = 0;
+                rowCount++;
+                row = data[rowCount];
             }
         }
         return [result, rows, cols];
@@ -176,7 +190,7 @@ module.exports = {
         for (let i = 0; i < size; ++i)
             if (typeof data[i] !== 'number') throw new Error("data[" + i + "] is not a number: " + data[i]);
         const result = data.slice();
-        return [data, rows, cols];
+        return [result, rows, cols];
     },
 
     get : function(data, rows, cols, r, c) {
