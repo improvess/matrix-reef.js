@@ -41,9 +41,9 @@ const A = new Matrix([
 const B = A.clone();
 ```
 ## diagonal
-Creates a diagonal matrix using 1D array
+Creates a diagonal matrix using elements from 1D array
 ```javascript
-const v = new Matrix([-1, 4, 2]);
+const v = [-1, 4, 2);
 const B = diagonal(v);
 // B is [[-1, 0, 0], [0, 4, 0], [0, 0, 2]];
 

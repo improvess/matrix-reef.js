@@ -80,7 +80,7 @@ Should output:
 ```
 Elapsed time: 0.81 secs for 5000 epochs.
 ```
-## How to run the benchmarks
+## Running the benchmarks
 
 The benchmark code is [here](blob/master/benchmarks/multiplication.js). This program uses <a href="https://github.com/bestiejs/benchmark.js" target="_blank">Benchmark.js</a> to compare the matrix-multiplication performance of Matrix-reef.js and two other Java Script Matrix implementations: <a href="https://github.com/josdejong/mathjs" target="_blank">Math.js</a> and <a href="https://github.com/mljs/matrix" target="_blank">ml-Matrix</a>.
 Execute the following command to run a benchmark yourself:
