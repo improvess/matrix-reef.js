@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { Matrix, zeros, ones, identity } = require('../../index');
+const { Matrix, zeros, ones, identity, diagonal } = require('../../index');
 const testUtils = require('../test.utils');
 const lowLevelApi = require('../../src/api/lowlevelapi');
 
@@ -331,6 +331,50 @@ describe('empty or small data is valid', function () {
             assert.equal(0, matrix.cols());
         } catch (e) {
             assert.fail("Should not throw error for [[], []]: " + e.message);
+        }
+    });
+
+});
+
+describe('diagonal', function () {
+
+    it('1D [n] is valid', function () {
+        try {
+            const vector = [3];
+            const matrix = diagonal(vector);
+            assert.equal(1, matrix.rows());
+            assert.equal(1, matrix.cols());
+            assert.ok(testUtils.compare(matrix, [[3]], 1e-8));
+        } catch (e) {
+            assert.fail("Should not throw error for [0]: " + e.message);
+        }
+    });
+
+    it('basic', function () {
+        try {
+            const vector = [2, 4, -1];
+            const expected = [[2, 0, 0], [0, 4, 0], [0, 0, -1]];
+            const matrix = diagonal(vector);
+            assert.equal(3, matrix.rows());
+            assert.equal(3, matrix.cols());
+            assert.ok(testUtils.compare(matrix, expected, 1e-8));
+        } catch (e) {
+            assert.fail("Should not throw error for [0]: " + e.message);
+        }
+    });
+
+    it('illegal', function () {
+        try {
+            diagonal([[2, 3], [2, 3]]);
+            assert.fail("Not thrown error for non 2D data");
+        } catch (e) {
+            assert.ok(e.message.includes("vector must be 1-D"));
+        }
+        try {
+            diagonal(2);
+            assert.fail("Not thrown error for non array data");
+        } catch (e) {
+            assert.ok(e.message.includes("vector is not properly provided"));
         }
     });
 

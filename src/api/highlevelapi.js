@@ -156,6 +156,11 @@ module.exports = {
     identity : function(size) {
         const storage = lowLevelApi.identity(size);
         return new _Matrix(storage, size, size);
+    },
+
+    diagonal : function(array) {
+        const storage = lowLevelApi.diagonalFromArray(array);
+        return new _Matrix(storage, array.length, array.length);
     }
 
 }

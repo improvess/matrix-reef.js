@@ -1,6 +1,41 @@
-
 function _allocate(size) {
     return new Array(size);
+}
+
+function initStorageFromRaw(data) {
+    const rows = data.length;
+    const cols = (data[0]) ? data[0].length : undefined;
+    for (let i = 0; i < rows; ++i) {
+        const candidateCols = data[i].length;
+        if (typeof cols !== "undefined") {
+            if (cols != candidateCols) throw new Error("data is not a rectangular structure.");
+            if (module.exports.general.options.checkIsNumeric) {
+                const row = data[i];
+                for (let j = 0; j < cols; ++j)
+                    if (typeof row[j] !== 'number') throw new Error("data[" + i + "][" + j + "] is not a number: " + row[j]);
+            }
+        } else {
+            if (candidateCols) throw new Error("data is not a rectangular structure.");
+            if (module.exports.general.options.checkIsNumeric && !candidateCols && typeof data[i] !== 'number') 
+                throw new Error("data[" + i + "] is not a number: " + data[i]);
+        }
+    }
+    if (typeof cols === "undefined") return [data.slice(), rows, (rows ? 1 : 0)];
+    const size = rows * cols;
+    const result = _allocate(size);
+    let rowCount = 0;
+    let colCount = 0;
+    let row = data[rowCount];
+    for (let i = 0; i < size; ++i) {
+        result[i] = row[colCount];
+        colCount++;
+        if (colCount == cols){
+            colCount = 0;
+            rowCount++;
+            row = data[rowCount];
+        }
+    }
+    return [result, rows, cols];
 }
 
 module.exports = {
@@ -143,47 +178,10 @@ module.exports = {
         return result;
     },
 
-    initStorageFromRaw: function (data) {
-        if (!data) throw new Error("data not provided");
-        const rows = data.length;
-        const cols = (data[0]) ? data[0].length : undefined;
-        for (let i = 0; i < rows; ++i) {
-            const candidateCols = data[i].length;
-            if (typeof cols !== "undefined") {
-                if (cols != candidateCols) throw new Error("data is not a rectangular structure.");
-                if (module.exports.general.options.checkIsNumeric) {
-                    const row = data[i];
-                    for (let j = 0; j < cols; ++j)
-                        if (typeof row[j] !== 'number') throw new Error("data[" + i + "][" + j + "] is not a number: " + row[j]);
-                }
-            } else {
-                if (candidateCols) throw new Error("data is not a rectangular structure.");
-                if (module.exports.general.options.checkIsNumeric && !candidateCols && typeof data[i] !== 'number') 
-                    throw new Error("data[" + i + "] is not a number: " + data[i]);
-            }
-        }
-        if (typeof cols === "undefined") return [data.slice(), rows, (rows ? 1 : 0)];
-        const size = rows * cols;
-        const result = _allocate(size);
-        let rowCount = 0;
-        let colCount = 0;
-        let row = data[rowCount];
-        for (let i = 0; i < size; ++i) {
-            result[i] = row[colCount];
-            colCount++;
-            if (colCount == cols){
-                colCount = 0;
-                rowCount++;
-                row = data[rowCount];
-            }
-        }
-        return [result, rows, cols];
-    },
-
     initStorage: function (data, rows, cols) {
         if (!data) throw new Error("data not provided");
         if (!Array.isArray(data)) throw new Error("data is not iterable");
-        if (!rows || !cols) return module.exports.initStorageFromRaw(data);
+        if (!rows || !cols) return initStorageFromRaw(data);
         const size = rows * cols;
         if (data.length != size)
             throw new Error("data dimension is not compatible to provided rows and cols");
@@ -252,9 +250,21 @@ module.exports = {
         return result;
     }, 
 
-    clone : function(source, dest) {
+    clone : function(source, storage) {
         for (let i = 0, size = source.length; i < size; ++i)
-            dest [i] = source [i];
-    }
+            storage[i] = source[i];
+    },
+
+    diagonalFromArray : function (vector) {
+        if (!Array.isArray(vector)) throw new Error("vector is not properly provided");
+        if (vector[0].length) throw new Error("vector must be 1-D");
+        const size = vector.length;
+        const totalSize = size * size;
+        let result = this.repeat(0, totalSize);
+        for (let i = 0; i < size; ++i) {
+            result[i * size + i] = vector[i];
+        }
+        return result;
+    },
 
 }
