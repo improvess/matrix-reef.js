@@ -59,11 +59,11 @@ const { Matrix } = require('matrix-reef.js');
 ```
 # API by examples
 - creating: [constructors](examples/creational.md#constructors), [zeros, ones](examples/creational.md#zeros-and-ones), [identity](examples/creational.md#identity-aka-eye), diagonal and cloning.
-- accessing: [get, set](examples/accessing.md#constructors), rows, cols, diagonal and path.
-- arithmetics: [add, subtract](examples/arithmetics.md#get-and-set), [add scalar](examples/arithmetics.md#adding-scalar-to-matrix), [add row ](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix and [add column](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix.
-- multiplication: [multiply by scalar](multiplication.md#multiply-by-scalar), [dot multiply](multiplication.md#dot-multiplication) and [matrix-multiplication](multiplication.md#matrix-multiplication).
-- functional: map, max, min, sum, product, rowWise, colWise and chain call.
-- matrices: dimension, rows, cols, transpose, determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.
+- accessing: [get, set](examples/accessing.md#constructors), row, col, diagonal and path.
+- arithmetics: [add, subtract](examples/arithmetics.md#get-and-set), [add scalar](examples/arithmetics.md#adding-scalar-to-matrix), [add row](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix and [add column](examples/arithmetics.md#adding-row-or-column-to-matrix) to matrix.
+- multiplication: [multiply by scalar](multiplication.md#multiply-by-scalar), [dot multiply](multiplication.md#dot-multiplication) and [matrix multiplication](multiplication.md#matrix-multiplication).
+- functional: map, max, min, sum, product, rowWise, colWise and chaining calls.
+- matrices: [dimension](examples/matrices.md#dimension), [rows, cols](examples/matrices.md#rows-and-cols), transpose, determinant, inverse, reshape, flatten, rotate90, rotate180 and rank.
 - query: isSquared, isDiagonal, isUpperTriangular, isLowerTriangular
 - memory saving: in-place operations, slices and views.
 - optimization: Matrix2D, Matrix3D, Matrix4D, Vector, RowVector, ColumnVector, Vector2D, Vector3D, Vector4D and Sparse Matrix.

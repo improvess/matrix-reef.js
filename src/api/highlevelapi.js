@@ -96,6 +96,10 @@ function _Matrix(data, rows, cols) {
         return this._cols;
     }
 
+    this.dim = function() {
+        return [this._rows, this._cols];
+    }
+
 }
 
 function _repeat(rows, cols, value) {

@@ -68,8 +68,9 @@ describe('zeros, ones and identities', function () {
         try {
             const expected = [0, 0, 0, 0, 0, 0, 0];
             const matrix = zeros(expected.length);
-            assert.equal(7, matrix.rows());
-            assert.equal(1, matrix.cols());
+            const dimension = matrix.dim();
+            assert.equal(7, dimension[0]);
+            assert.equal(1, dimension[1]);
             assert.ok(testUtils.compare(matrix, expected, 1e-8));
         } catch (e) {
             assert.fail(e.message);
