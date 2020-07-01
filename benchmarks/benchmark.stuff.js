@@ -49,7 +49,7 @@ module.exports = {
 
         const size = data.length;
         suite
-/*
+
             .add('sylvester', function () {
                 for (let i = 0; i < size; ++i) {
 
@@ -73,7 +73,7 @@ module.exports = {
                     A.mmul(B);
 
                 }
-            })*/
+            })
             .add('Matrix-Reef JS', function () {
                 for (let i = 0; i < size; ++i) {
 
@@ -86,7 +86,7 @@ module.exports = {
 
                 }
             })
-            /*.add('MathJS', function () {
+            .add('MathJS', function () {
                 for (let i = 0; i < size; ++i) {
 
                     const matrices = data[i];
@@ -97,7 +97,7 @@ module.exports = {
                     MathJS.multiply(A, B);
 
                 }
-            })*/
+            })
             .on('cycle', function (event) {
                 console.log(String(event.target));
             })
