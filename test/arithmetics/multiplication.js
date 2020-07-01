@@ -133,14 +133,14 @@ describe('blind check multiplication', function () {
 
     const size = 1000;
 
-    this.timeout(size / 2);
+    this.timeout(Math.max(size / 2, 20000));
 
     it("generating " + size + " multiplication use cases", function () {
         for (let i = 0; i < size; ++i) {
 
-            const a_rows = Math.round(40 * Math.random()) + 1;
-            const a_cols = Math.round(40 * Math.random()) + 1;
-            const b_cols = Math.round(40 * Math.random()) + 1;
+            const a_rows = Math.round(128 * Math.random()) + 1;
+            const a_cols = Math.round(128 * Math.random()) + 1;
+            const b_cols = Math.round(128 * Math.random()) + 1;
 
             const a = testUtils.randomArray(a_rows, a_cols, testUtils.rand50);
             const b = testUtils.randomArray(a_cols, b_cols, testUtils.rand50);

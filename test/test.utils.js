@@ -21,6 +21,12 @@ module.exports = {
         if (arrayCols && cols != arrayCols) throw new Error("Matrix cols and array cols does not match");
         const arrayRows = array.length;
         const storage = matrix.storage;
+
+        const storageSize = storage.length;
+        if (storageSize != (rows * cols)) 
+            throw new Error("The storage length " + storageSize + 
+                " is not consistent to matrix dimensions [" + rows + ", " + cols + "].");
+
         if (!arrayCols) {
             for(let i = 0; i < arrayRows; ++i) {
                 const value = array[i];

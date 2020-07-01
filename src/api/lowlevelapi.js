@@ -96,9 +96,9 @@ module.exports = {
     map2d: function (list, rows, cols, fun, restore) {
         const size = list.length;
         let result = restore;
-        for (let i = 0; i < size; ++i) {
+        for (let i = 0; i < rows; ++i) {
             const i_cols = i * cols;
-            for (let j = 0; j < size; ++j) {
+            for (let j = 0; j < cols; ++j) {
                 const index = i_cols + j;
                 result[index] = fun(list[index], i, j);
             }
@@ -159,20 +159,36 @@ module.exports = {
     multiply: function (a, b, aRows, aCols, bRows, bCols, result) {
         if (aCols != bRows) throw new Error("Incompatible matrices to multiply");
 
-        let bColumn = (bCols > 1) ? new Array(aCols) : b;
+        const bColumn = (bCols > 1) ? new Array(aCols) : b;
+        const safeBar = aCols - 4;
+        let P1, P2, P3, P4, PE; 
         for (let c = 0; c < bCols; ++c) {
             if (bCols > 1) {
-                for (let br = 0; br < aCols; ++br) {
-                    bColumn[br] = b[br * bCols + c];
+                let brOffset = c;
+                for (let br = 0; br < aCols; ++br, brOffset += bCols) {
+                    bColumn[br] = b[brOffset];
                 }
             } 
-            for (let r = 0; r < aRows; ++r) {
+            let raOffset = 0;
+            let rbOffset = c;
+            for (let r = 0; r < aRows; ++r, raOffset += aCols, rbOffset += bCols) {
                 let sum = 0;
-                const r_aCols = r * aCols;
-                for (let br = 0; br < aCols; ++br) {
-                    sum += a[r_aCols + br] * bColumn[br];
+                let br = 0;
+                for (; br < safeBar;) {
+                    const t = raOffset + br;
+                    P1 = a[t] * bColumn[br];
+                    P2 = a[t + 1] * bColumn[br + 1];
+                    P3 = a[t + 2] * bColumn[br + 2];
+                    P3 = a[t + 3] * bColumn[br + 3];
+                    br += 4;
+                    sum += P1 + P2 + P3 + P4;
                 }
-                result[r * bCols + c] = sum;
+                for (; br < aCols;) {
+                    PE = a[raOffset + br] * bColumn[br];
+                    sum += PE;
+                    ++br;
+                }
+                result[rbOffset] = sum;
             }
         }
         return result;
