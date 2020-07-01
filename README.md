@@ -8,7 +8,7 @@
 
 A faster Matrix for the Java Script World.
 
-There are awesome matrix libraries for Java Script in the wild.
+There are pretty awesome matrix libraries for Java Script in the wild.
 But if you are looking for something faster consider using this library.
 Matrix-reef.js is a pure Java Script matrix library for numeric computing. It is extremely fast and there is no third-party dependencies under the wood (no webgl!). Check out the comparison below.
 
